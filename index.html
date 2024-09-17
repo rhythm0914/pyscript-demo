@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyScript on GitHub Pages</title>
+    <!-- Include PyScript -->
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+    <h1>PyScript Demo on GitHub Pages</h1>
+    <p>Enter a number to calculate its square:</p>
+    <input type="number" id="inputNumber" />
+    <button id="calculateButton">Calculate Square</button>
+    
+    <h2>Result:</h2>
+    <p id="result"></p>
+
+    <py-script>
+        from pyscript import Element
+
+        def calculate_square(*args):
+            num = float(Element("inputNumber").element.value)
+            square = num ** 2
+            Element("result").element.innerText = f"The square of {num} is {square}"
+
+        Element("calculateButton").element.addEventListener("click", calculate_square)
+    </py-script>
+</body>
+</html>
